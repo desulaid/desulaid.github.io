@@ -1,32 +1,94 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ссылки на мои социальные сети.">
-  <meta name="author" content="Стяжкин Антон">
-  <script src="https://ru.vuejs.org/js/vue.min.js"></script>
-  <link href="index.css" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/favicon/site.webmanifest">
-  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <title>Стяжкин Антон</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Links to my social networks">
+    <meta name="author" content="Anton Styazhkin">
+    <title>Anton Styazhkin aka Desulaid</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #303952;
+        }
+        
+        .content {
+            margin: 10px;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        ul {
+            margin-left: 0;
+            padding-left: 0;
+        }
+        
+        a {
+            color: #f1f8ff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        
+        a:hover {
+            color: #24292e;
+            background-color: #f1f8ff;
+        }
+        
+        @media screen {
+            a {
+                font-size: 106px;
+            }
+        }
+        
+        @media screen and (max-width: 600px) and (orientation: portrait) {
+            a {
+                font-size: 56px;
+            }
+        }
+    </style>
 </head>
-<body> 
-  <section class="content">
-    <ul id="app">
-      <li v-for="profile in profiles">
-        <a v-bind:href="profile.url" target="_blank" @mouseenter="profile.hover=true" @mouseleave="profile.hover=false">{{ profile.hover ? profile.name.split("").reverse().join("") : profile.name }}</a>
-      </li>
-    </ul>
-  </section>
-  <footer>
-    <p>Да, этот кусок говна в <a href="https://github.com/desulaid/desulaid.github.io">открытом</a> доступе.</p>
-  </footer>
-  <script src="index.js"></script>
+
+<body>
+    <div class="content">
+        <ul id="links">
+        </ul>
+    </div>
+
+    <script>
+        let socialNetworks = {
+            "Vkontakte": "https://vk.com/id152967894",
+            "Telegram": "https://t.me/hochupoebachu",
+            "Instagram": "https://www.instagram.com/desulaid/?hl=ru",
+            "Spotify": "https://open.spotify.com/user/2uq5uxac9mzr6yadjsjr8fk1f?si=luMO22GZR8KGQIe3J5ek4g",
+            "TikTok": "https://www.tiktok.com/@desulaid?lang=ru",
+            "Github (:": "https://github.com/desulaid"
+
+        }
+        let linksList = document.getElementById("links");
+
+        for (var key in socialNetworks) {
+            let li = document.createElement('li');
+            let a = document.createElement('a');
+            let text = document.createTextNode(key);
+
+            a.setAttribute('href', socialNetworks[key]);
+            a.appendChild(text);
+            li.appendChild(a);
+            linksList.appendChild(li);
+        }
+    </script>
 </body>
+
 </html>
