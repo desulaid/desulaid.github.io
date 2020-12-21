@@ -84,6 +84,7 @@
             let text = document.createTextNode(key);
 
             a.setAttribute('href', socialNetworks[key]);
+            a.setAttribute('target', '_blank');
             a.appendChild(text);
             li.appendChild(a);
             linksList.appendChild(li);
