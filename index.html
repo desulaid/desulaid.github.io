@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Links to my social networks">
     <meta name="author" content="Anton Styazhkin">
+    <meta charset="utf-8">
     <title>Anton Styazhkin</title>
     <link rel="shortcut icon" type="image/jpg" href="favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -13,50 +14,51 @@
     <link rel="manifest" href="/site.webmanifest">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
         * {
             margin: 0;
             padding: 0;
         }
-        
+
         html {
             height: 100%;
         }
-        
+
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #303952;
         }
-        
+
         .content {
             margin: 10px;
         }
-        
+
         li {
             list-style-type: none;
         }
-        
+
         ul {
             margin-left: 0;
             padding-left: 0;
         }
-        
+
         a {
             color: #f1f8ff;
             text-decoration: none;
             text-transform: uppercase;
         }
-        
+
         a:hover {
             color: #24292e;
             background-color: #f1f8ff;
         }
-        
+
         @media screen {
             a {
                 font-size: 106px;
             }
         }
-        
+
         @media screen and (max-width: 600px) and (orientation: portrait) {
             a {
                 font-size: 56px;
@@ -72,26 +74,26 @@
     </div>
 
     <script>
-        let socialNetworks = {
-            "Vkontakte": "https://vk.com/id152967894",
-            //"Telegram": "https://t.me/hochupoebachu",
-            "Instagram": "https://www.instagram.com/desulaid/?hl=ru",
-            "Spotify": "https://open.spotify.com/user/2uq5uxac9mzr6yadjsjr8fk1f?si=luMO22GZR8KGQIe3J5ek4g",
-            "TikTok": "https://www.tiktok.com/@desulaid?lang=ru",
-            "Github (:": "https://github.com/desulaid"
-
+        const me = {
+            Profiles: [
+                { name: 'VK', url: 'https://vk.com/id152967894' },
+                { name: 'TikTok', url: 'https://www.tiktok.com/@desulaid?lang=ru' },
+                { name: 'Instagram', url: 'https://www.instagram.com/desulaid/?hl=ru' },
+                { name: 'and Github (:', url: 'https://github.com/desulaid' },
+            ]
         }
-        let linksList = document.getElementById("links");
 
-        for (var key in socialNetworks) {
-            let li = document.createElement('li');
-            let a = document.createElement('a');
-            let text = document.createTextNode(key);
+        const linksList = document.getElementById("links");
 
-            a.setAttribute('href', socialNetworks[key]);
+        for (const { name, url } of me.Profiles) {
+            const li = document.createElement('li');
+            const a = document.createElement('a')
+
+            a.setAttribute('href', url)
             a.setAttribute('target', '_blank');
-            a.appendChild(text);
+            a.appendChild(document.createTextNode(name));
             li.appendChild(a);
+            linksList.appendChild(li);
             linksList.appendChild(li);
         }
     </script>
