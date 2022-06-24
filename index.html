@@ -48,6 +48,24 @@
             color: #24292e;
             text-decoration: none;
             text-transform: uppercase;
+
+            /* Просто скопипастил отседова
+             * https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Animations/Using_CSS_animations 
+             */
+            animation-duration: 3s;
+            animation-name: slidein;
+        }
+
+        @keyframes slidein {
+            from {
+                margin-left: 100%;
+                width: 300%;
+            }
+
+            to {
+                margin-left: 0%;
+                width: 100%;
+            }
         }
 
         a:hover {
